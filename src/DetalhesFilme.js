@@ -4,6 +4,7 @@ import { useNavigation } from '@react-navigation/native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/drawer';
 import { useRoute } from '@react-navigation/native';
+import { format } from 'date-fns';
 
 //const Stack = createStackNavigator();
 //const Drawer = createDrawerNavigator();
@@ -22,12 +23,18 @@ const DetalhesFilme = () => {
 
   const image_path = 'https://image.tmdb.org/t/p/w500';
 
+  const dataOriginal = data.release_date;
+  //const dataFormatada = data.release_date;
+  const dataFormatada = format(new Date(dataOriginal), 'dd/MM/yyyy');
+  //const formattedDate = format(date, 'dd/MM/yyyy');
+
+
   return (
 
     <View style={styles.container}>
       <Image resizeMode='contain' source={{ uri: image_path + data.poster_path }} style={{ width: 400, height: 400 }} />
       <Text style={styles.title}>{data.title}</Text>
-      <Text style={styles.detalhes}>Lançamento: {data.release_date}</Text>
+      <Text style={styles.detalhes}>Lançamento: {dataFormatada}</Text>
       <Text style={styles.sinopse}><Text style={styles.sinopseText}>Sinopse:</Text> {data.overview}</Text>
     </View>
 
