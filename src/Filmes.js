@@ -17,7 +17,7 @@ const Filmes = () => {
   const image_path = 'https://image.tmdb.org/t/p/w500';
 
   useEffect(() => {
-    const url = 'https://api.themoviedb.org/3/movie/popular?language=en-US&page=1';
+    const url = 'https://api.themoviedb.org/3/movie/popular?language=pt-BR&page=1';
     const options = {
       method: 'GET',
       headers: {
@@ -35,7 +35,7 @@ const Filmes = () => {
   }, [])
 
   return (
-    <View>
+    <View style={styles.viewPrincipal}>
       <Text style={styles.titlePage}>Filmes mais Populares</Text>
       <ScrollView style={styles.container}>
         <View style={styles.View}>
@@ -70,10 +70,14 @@ const styles = StyleSheet.create({
     fontFamily: 'sans-serif',
     alignItems: 'center',
   },
-  View: {    
+  View: {
     alignItems: 'center',
     justifyContent: 'center',
     flexDirection: 'row',
     flexWrap: 'wrap',
+  },
+  viewPrincipal: {
+    backgroundColor: 'white',
+
   }
 });

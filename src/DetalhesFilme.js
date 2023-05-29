@@ -26,11 +26,9 @@ const DetalhesFilme = () => {
 
     <View style={styles.container}>
       <Image resizeMode='contain' source={{ uri: image_path + data.poster_path }} style={{ width: 400, height: 400 }} />
-      <Text style={styles.nome}>{data.title}</Text>
+      <Text style={styles.title}>{data.title}</Text>
       <Text style={styles.detalhes}>Lançamento: {data.release_date}</Text>
-      <Text style={styles.detalhes}>Estilo: {data.genre_ids}</Text>
-      <Text style={styles.detalhes}>Direção: {data.direcao}</Text>
-      <Text style={styles.sinopse}>Sinopse: {data.overview}</Text>
+      <Text style={styles.sinopse}><Text style={styles.sinopseText}>Sinopse:</Text> {data.overview}</Text>
     </View>
 
   );
@@ -45,9 +43,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  nome: {
+  title: {
     fontWeight: 'bold',
     fontSize: 30,
+    textAlign: 'center',
+    padding: 5,
   },
   detalhes: {
     fontSize: 20,
@@ -56,5 +56,11 @@ const styles = StyleSheet.create({
     padding: 15,
     textAlign: 'justify',
     fontSize: 15,
+  },
+  sinopseText: {
+    padding: 15,
+    textAlign: 'justify',
+    fontSize: 15,
+    fontWeight: 'bold'
   }
 });
